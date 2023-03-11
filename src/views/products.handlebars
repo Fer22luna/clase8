@@ -1,0 +1,25 @@
+
+<h2>Datos del usuario</h2>
+
+<label for="">Nombre</label>
+<p>{{userWithRole.first_name}}</p>
+<br>
+<label for="">Apellido</label>
+<p>{{userWithRole.last_name}}</p>
+<br>
+<label for="">Correo</label>
+<p>{{userWithRole.email}}</p>
+<br>
+<label for="">Role</label>
+<p>{{userWithRole.role}}</p>
+
+
+<h3>Product List</h3>
+
+{{#each products}}
+<!-- Por el momento ahi le puse solo this porque no me deja entrar a los valores this.title, despues lo soluciono -->
+<p> Producto : {{this}}</p>
+{{/each}}
+
+
+<script src="/js/products.js"></script>

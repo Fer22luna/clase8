@@ -5,7 +5,7 @@ const router = Router()
 
 
 router.get("/", (req,res)=>{
-    res.json({message:"GET"})
+    res.render("index.handlebars")
 })
 
 router.post("/", (req,res)=>{

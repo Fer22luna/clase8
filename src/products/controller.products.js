@@ -10,14 +10,27 @@ const { Server } = require('socket.io')
 
 
 router.get("/", async (req,res)=>{
-/*
-    try {
-        const response = await Product.find()
-        res.json({message: response})
-    } catch (error) {
-        res.json({message :error})
-    }*/
-    res.render("index.handlebars")
+   
+   const { user } = req.session
+      console.log(user)
+     let role = ""
+
+   if(user.email === "adminCoder@coder.com" || user.password === "adminCod3r123"){
+
+       role = "admin"
+   }else{
+       role = "usuario"
+   }
+
+   const userWithRole ={
+      ...user,
+      role
+   }
+
+   const products = await Product.find()  
+
+   res.render("products.handlebars", { userWithRole , products })
+   
 })
 
 router.post("/", async (req,res) =>{
