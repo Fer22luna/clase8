@@ -7,7 +7,7 @@ const handlebars = require("express-handlebars")
 const { Server } = require('socket.io')
 const Message = require("./dao/models/Message.model")
 
-const port = 8080
+const port = 9090
 
 const app = express()
 

@@ -7,12 +7,21 @@ router.post('/', async (req, res) => {
   try {
     const { first_name, last_name, age, email, password } = req.body
 
+    let role = ""
+
+    if(email === "adminCoder@coder.com" || password === "adminCod3r123"){
+      role = "admin"
+  }else{
+      role = "user"
+  }
+
     const newUserInfo = {
       first_name,
       last_name,
       age,
       email,
-      password
+      password,
+      role
     }
 
     const newUser = await User.create(newUserInfo)
