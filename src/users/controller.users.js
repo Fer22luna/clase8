@@ -29,7 +29,6 @@ router.post('/', async (req, res) => {
     res.status(201).json({ message: newUser })
   } catch (error) {
     console.log(error)
-    // res.json({error: error.errmsg})
     if (error.code === 11000) return res.status(400).json({ error: 'El usuario ya existe' })
     res.status(500).json({ error: 'Internal server error' })
   }

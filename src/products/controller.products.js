@@ -16,7 +16,7 @@ router.get("/", async (req,res)=>{
   const products = await Product.find()
 
   res.render("products.handlebars", {products, user})
-   
+  
 })
 
 router.post("/", async (req,res) =>{

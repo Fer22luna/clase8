@@ -26,33 +26,26 @@ router.post("/", async (req, res) => {
             role: user.role
         }
 
+        //const baseUrl = `${req.protocol}://${req.headers.host}/`;   
+       //  res.status(201).json({ message: "Sesion iniciada" })
+         if(req.session.user)  return res.redirect("/products")
+        
 
-        const baseUrl = `${req.protocol}://${req.headers.host}/`;
-
-        // res.status(201).json({ message: "Sesion iniciada" })
-        if (req.session.user) return res.redirect(`${baseUrl}products`)
-        // no me funciona tengo un problema en la ruta me parece
 
     } catch (error) {
-        res.status(500).json({ error: "INternal server Error" })
+        res.status(500).json({ error: "Internal server Error" })
     }
 
 })
 
 router.get("/logout", (req, res) => {
+
     req.session.destroy(error => {
         if (error) return res.json({ error })
 
         res.redirect("/login")
     })
 })
-
-
-
-
-
-
-
 
 
 module.exports = router
